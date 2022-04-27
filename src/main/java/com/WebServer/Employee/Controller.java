@@ -38,7 +38,7 @@ public class Controller {
 		return "Emp added";
 	}
 	
-	@PutMapping(path="/{userid}")
+	@PutMapping(path="/{userId}")
 	public String putmethod(@PathVariable String userId,@RequestBody RestUser userdetails)
 	{
 
@@ -58,14 +58,13 @@ public class Controller {
 			}
 	}
 	
-	@DeleteMapping(path="/{userid}")
+	@DeleteMapping(path="/{userId}")
 	public String deletemethod(@PathVariable String userId)
 	{
 		if(allUsers.containsKey(userId)) 
 		{
-			
-		
-		return userId+"UserDeleted";
+			allUsers.remove(userId);
+			return userId+"UserDeleted";
 		}
 		else
 		{
